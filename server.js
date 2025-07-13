@@ -1,7 +1,7 @@
 // Simple Calculator JavaScript
 
 // Get the display element
-let display = document.getElementById('display');
+let display = document.getElementById('result');
 
 // Variables to store our numbers and operation
 
@@ -36,6 +36,11 @@ function clearResult() {
 
 }
 
+function deleteLastCharacter(){
+    var currentValue = document.getElementById('result').value;
+    document.getElementById('result').value = currentValue.slice(0, -1);
+}
+
 
 // Function to calculate the result
 function calculate() {
@@ -46,18 +51,10 @@ function calculate() {
     // Do this
     if (isNaN(num1) || isNaN(num2)) return;
     switch (operation) {
-        case '+':
-            result = num1 + num2;
-            break;
-        case '-':
-            result = num1 - num2;
-            break;
-        case '*':
-            result = num1 * num2;
-            break;
-        case '/':
-            result = num1 / num2;
-            break;
+        case '+': result = num1 + num2; break;
+        case '-': result = num1 - num2; break;
+        case '*': result = num1 * num2; break;
+        case '/': result = num1 / num2; break;
         default:
             return;
     }
