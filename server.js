@@ -39,6 +39,16 @@ function clearResult() {
 function deleteLastCharacter(){
     var currentValue = document.getElementById('result').value;
     document.getElementById('result').value = currentValue.slice(0, -1);
+
+    if (!operation) {
+        firstNumber = firstNumber.slice(0 - 1);
+    }
+    else if (display.value) {
+        secondNumber = secondNumber.slice(0 - 1);
+    }
+    else {
+        operations = '';
+    }
 }
 
 
