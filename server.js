@@ -10,7 +10,7 @@ let secondNumber = '';
 let operation = '';
 
 // Function to append a number to the display
-function appendNumber(num) {
+function appendResult(num) {
     if (operation === '') {
         firstNumber += num;
         display.value = firstNumber;
@@ -27,8 +27,12 @@ function setOperation(op) {
 }
 
 // Function to clear the display
-function clearDisplay() {
+function clearResult() {
     // Do this
+    firstNumber = '';
+    secondNumber = '';
+    operation = '';
+    display.value = '';
 
 }
 
@@ -40,6 +44,23 @@ function calculate() {
     let num2 = parseFloat(secondNumber);
 
     // Do this
+    if (isNaN(num1) || isNaN(num2)) return;
+    switch (operation) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            result = num1 / num2;
+            break;
+        default:
+            return;
+    }
 
     display.value = result;
     firstNumber = result.toString();
