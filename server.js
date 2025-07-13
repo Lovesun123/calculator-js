@@ -13,64 +13,68 @@ let operation = '';
 function appendResult(num) {
     if (operation === '') {
         firstNumber += num;
-        display.value = firstNumber;
     } else {
         secondNumber += num;
-        display.value = secondNumber;
     }
+    updateDisplay();
 }
 
 // Function to set the operation
 function setOperation(op) {
-    operation = op;
-    display.value = '';
+    if (firstNumber && !secondNumber) {
+        operation = op;
+        updateDisplay();
+    }
 }
 
 // Function to clear the display
 function clearResult() {
-    // Do this
     firstNumber = '';
     secondNumber = '';
     operation = '';
-    display.value = '';
-
+    display.value = '0';
 }
-
-function deleteLastCharacter(){
-    var currentValue = document.getElementById('result').value;
-    document.getElementById('result').value = currentValue.slice(0, -1);
-
-    if (!operation) {
-        firstNumber = firstNumber.slice(0 - 1);
+        
+function deleteLastCharacter() {
+    if (operation && secondNumber) {
+        secondNumber = secondNumber.slice(0, -1);
+    } else if (operation) {
+        operation = '';
+    } else {
+        firstNumber = firstNumber.slice(0, -1);
     }
-    else if (display.value) {
-        secondNumber = secondNumber.slice(0 - 1);
-    }
-    else {
-        operations = '';
-    }
+    updateDisplay();
 }
-
 
 // Function to calculate the result
 function calculate() {
+    if (!firstNumber || !operation) return;
+    if (!secondNumber) secondNumber = firstNumber;
+            
     let result;
-    let num1 = parseFloat(firstNumber);
-    let num2 = parseFloat(secondNumber);
-
-    // Do this
-    if (isNaN(num1) || isNaN(num2)) return;
+    const num1 = parseFloat(firstNumber);
+    const num2 = parseFloat(secondNumber);
+            
     switch (operation) {
         case '+': result = num1 + num2; break;
         case '-': result = num1 - num2; break;
         case '*': result = num1 * num2; break;
         case '/': result = num1 / num2; break;
-        default:
-            return;
+        default: return;
     }
-
-    display.value = result;
+            
     firstNumber = result.toString();
     secondNumber = '';
     operation = '';
+    display.value = firstNumber;
+}
+        
+function updateDisplay() {
+    if (operation && secondNumber) {
+        display.value = secondNumber;
+    } else if (operation) {
+        display.value = `${firstNumber} ${operation}`;
+    } else {
+        display.value = firstNumber || '0';
+    }
 }

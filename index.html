@@ -12,44 +12,36 @@
         <div class="screen">
             <input id="result" type="text" readonly placeholder="e">
         </div>
-
         <div class="button-sec">
             <div class="button-row">
                 <button class="cal-button clear" onclick="clearResult()">C</button>
-                <button class="cal-button" onclick="deleteLastCharacter()">&larr;</button>
-                <button class="cal-button oporator" onclick="seOperation('/')">&divide;</button>
+                <button class="cal-button" onclick="deleteLastCharacter()">←</button>
+                <button class="cal-button oporator" onclick="setOperation('/')">÷</button>
             </div>
-
             <div class="button-row">
                 <button class="cal-button" onclick="appendResult('7')">7</button>
                 <button class="cal-button" onclick="appendResult('8')">8</button>
                 <button class="cal-button" onclick="appendResult('9')">9</button>
-                <button class="cal-button oporator" onclick="seOperation('*')">&times;</button>
+                <button class="cal-button oporator" onclick="setOperation('*')">×</button>
             </div>
-
             <div class="button-row">
                 <button class="cal-button" onclick="appendResult('4')">4</button>
                 <button class="cal-button" onclick="appendResult('5')">5</button>
                 <button class="cal-button" onclick="appendResult('6')">6</button>
-                <button class="cal-button oporator" onclick="seOperation('-')">&minus;</button>
+                <button class="cal-button oporator" onclick="setOperation('-')">−</button>
             </div>
-
             <div class="button-row">
                 <button class="cal-button" onclick="appendResult('3')">3</button>
                 <button class="cal-button" onclick="appendResult('2')">2</button>
                 <button class="cal-button" onclick="appendResult('1')">1</button>
-                <button class="cal-button oporator" onclick="seOperation('+')">&plus;</button>
+                <button class="cal-button oporator" onclick="setOperation('+')">+</button>
             </div>
-
             <div class="button-row">
                 <button class="cal-button" onclick="appendResult('0')">0</button>
-                <button class="cal-button oporator" onclick="calculate()">&equals;</button>
+                <button class="cal-button oporator" onclick="calculate()">=</button>
             </div>
-
         </div>
     </div>
-    
 </body>
-
 <script src="server.js"></script>
 </html>
