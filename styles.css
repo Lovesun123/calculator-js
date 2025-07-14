@@ -69,13 +69,35 @@ body{
 .button-row button{
     width: 63px;
     height: 63px;
-    background: rgba(255,255,255, 0.21);
+    background: rgba(254, 45, 163, 0.21);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255,255,255, 0.3);
     border-radius: 10px;
     font-size: 24px;
-    color: #fff;
+    color: #ffffff;
     font-weight: 500;
     cursor: pointer;
+}
+
+.burron-row button:hover{
+    background: rgba(255,255,255, 0.60);
+}
+
+.button-row .clear{
+    width: 140px;
+}
+
+.button-row:last-child{
+    justify-content: flex-start;
+}
+
+.button-row .equal{
+    width: 140px;
+    margin-left: 15px;
+}
+
+.operator{
+    background:#f073a9 !important;
+    color: #faf8f9 !important;
 }
