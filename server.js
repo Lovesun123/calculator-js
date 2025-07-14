@@ -16,14 +16,14 @@ function appendResult(num) {
     } else {
         secondNumber += num;
     }
-    updateDisplay();
+    Display();
 }
 
 // Function to set the operation
 function setOperation(op) {
     if (firstNumber && !secondNumber) {
         operation = op;
-        updateDisplay();
+        Display();
     }
 }
 
@@ -43,7 +43,7 @@ function deleteLastCharacter() {
     } else {
         firstNumber = firstNumber.slice(0, -1);
     }
-    updateDisplay();
+    Display();
 }
 
 // Function to calculate the result
@@ -69,7 +69,7 @@ function calculate() {
     display.value = firstNumber;
 }
         
-function updateDisplay() {
+function Display() {
     if (operation && secondNumber) {
         display.value = secondNumber;
     } else if (operation) {
